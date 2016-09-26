@@ -1,16 +1,24 @@
-<!DOCTYPE html>
-<html>
-
-
-<div ng-app="">
- 
-<p>Input something in the input box:</p>
-<p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
-<h1>Hello {{name}}</h1>
-
-</div>
-
-</body>
-<script src="angular.min.js"></script>
-<body>
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <script src="components.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <tabs>
+      <pane title="Localization">
+        <span>Date: {{ '2012-04-01' | date:'fullDate' }}</span><br>
+        <span>Currency: {{ 123456 | currency }}</span><br>
+        <span>Number: {{ 98765.4321 | number }}</span><br>
+      </pane>
+      <pane title="Pluralization">
+        <div ng-controller="BeerCounter">
+          <div ng-repeat="beerCount in beers">
+            <ng-pluralize count="beerCount" when="beerForms"></ng-pluralize>
+          </div>
+        </div>
+      </pane>
+    </tabs>
+  </body>
+  <script src="angular.min.js"></script>
 </html>
